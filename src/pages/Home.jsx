@@ -1,12 +1,12 @@
-import React from 'react'
-import Form from '../components/Form'
+import React from "react";
+import Form from "../components/Form/Form";
 
 const Home = () => {
   return (
-    <div>
-        <Form/>
+    <div className="h-[100vh] bg-gray-200">
+      <Form />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

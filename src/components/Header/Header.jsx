@@ -4,7 +4,7 @@ import logo2 from "../../assets/img/Logo1.png";
 
 function Header() {
   return (
-    <div className="w-full sticky top-0 bg-gray-900 p-2 flex items-center justify-center ">
+    <div className="w-full sticky top-0 bg-gray-900 p-2 flex items-center justify-center z-[999] ">
       <div className="w-full px-5">
         <img src={logo} className="w-[100px] h-auto"></img>
       </div>
