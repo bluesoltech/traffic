@@ -2,6 +2,7 @@ import React from "react";
 import logo from "../../assets/img/Logo2.png";
 import { MdFacebook } from "react-icons/md";
 import { FaInstagram ,FaLinkedin ,FaTwitter } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 
 
@@ -11,7 +12,7 @@ function Footer() {
     <div className="w-full bg-gray-900 text-white h-auto p-6">
       <div className=" flex justify-evenly text-white items-center">
         <div className="">
-          <h2>Terms & Condition</h2>
+          <Link to="/Terms">Terms $ Condition</Link>
         </div>
         <div className="">
           <img src={logo} alt="no_img" />
