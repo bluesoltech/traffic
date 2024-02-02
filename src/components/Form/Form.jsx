@@ -181,6 +181,9 @@ function Form() {
   return (
     <div className="bg-gray-200 h-full flex justify-center items-center">
       <div className=" lg:w-[65%] bg-white p-5 flex flex-col">
+        <p className="w-full text-center text-black text-lg md:text-2xl p-4 font-bold">
+          Road Safety Awareness Month
+        </p>
         <div className="border-b-[1px] border-gray-400"></div>
         <div className="">
           <form className="flex flex-col gap-5 mb-6" onSubmit={send}>
