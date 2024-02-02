@@ -1,13 +1,16 @@
 import React from "react";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
-import Home from "../pages/Home";
+import Routers from "../routes/Routers";
+
 
 function Layout() {
   return (
     <div>
       <Header />
-      <Home />
+      <main>
+        <Routers />
+      </main>
       <Footer />
     </div>
   );

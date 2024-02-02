@@ -2,9 +2,6 @@ import React, { useState, useEffect } from "react";
 import { DatePicker } from "rsuite";
 
 import FileUpload from "../File/FileUpload";
-import { db, imgDb } from "./Config.js";
-import { v4 } from "uuid";
-import { ref } from "firebase/storage";
 import { toast } from "react-toastify";
 
 function Form() {
@@ -28,14 +25,53 @@ function Form() {
   });
 
   useEffect(() => {
+    // console.log(slogan);
     setFormData({
       ...formData,
       ["slogan"]: slogan,
-      ["poster"]: poster,
+      ["poster"]: "",
+      ["video"]: "",
+      ["painting"]: "",
+    });
+
+    // console.log(formData);
+  }, [slogan]);
+  useEffect(() => {
+    // console.log(slogan);
+    setFormData({
+      ...formData,
+      ["slogan"]: "",
+      ["poster"]: "",
       ["video"]: video,
+      ["painting"]: "",
+    });
+
+    // console.log(formData);
+  }, [video]);
+  useEffect(() => {
+    // console.log(slogan);
+    setFormData({
+      ...formData,
+      ["slogan"]: "",
+      ["poster"]: poster,
+      ["video"]: "",
+      ["painting"]: "",
+    });
+
+    // console.log(formData);
+  }, [poster]);
+  useEffect(() => {
+    // console.log(slogan);
+    setFormData({
+      ...formData,
+      ["slogan"]: "",
+      ["poster"]: "",
+      ["video"]: "",
       ["painting"]: painting,
     });
-  }, [slogan, video, poster, painting]);
+
+    // console.log(formData);
+  }, [painting]);
 
   const handleInputChange = (e) => {
     setFormData({
@@ -54,6 +90,10 @@ function Form() {
       ["address"]: "",
       ["pincode"]: "",
       ["category"]: "slogan",
+      ["slogan"]: "",
+      ["painting"]: "",
+      ["poster"]: "",
+      ["video"]: "",
     });
   };
 
@@ -66,12 +106,73 @@ function Form() {
 
   const send = async (e) => {
     e.preventDefault();
-    console.log(formData.slogan);
-    if (formData.slogan == "") {
-      toast.error("Slogan not Uploaded!");
+    if (formData.dob == null) {
+      toast.error("Date of Birth is Invalid");
       return;
+    } else if (formData[formData.category] == "") {
+      toast.error("File not Uploaded!");
+      return;
+    } else {
+      let data;
+
+      if (formData.category == "slogan") data = formData.slogan;
+      else if (formData.category == "painting") data = formData.painting;
+      else if (formData.category == "poster") data = formData.poster;
+      else data = formData.video;
+
+      const { fname, lname, phone, email, dob, address, pincode, category } =
+        formData;
+      // console.log(formData);
+      const existingData = await fetch(
+        "https://traffic-police-b02cc-default-rtdb.asia-southeast1.firebasedatabase.app/UserData.json"
+      );
+      const existingDataJson = await existingData.json();
+      let emailExists, phoneExists;
+      if (existingDataJson) {
+        emailExists = Object.values(existingDataJson).find(
+          (user) => user.email === formData.email
+        );
+        phoneExists = Object.values(existingDataJson).some(
+          (user) => user.phone === formData.phone
+        );
+      }
+      // console.log(emailExists);
+      if (emailExists) {
+        toast.error("Email already exists. Please use a different email.");
+      } else if (phoneExists) {
+        toast.error(
+          "Phone number already exists. Please use a different phone number."
+        );
+      } else {
+        const options = {
+          method: "POST",
+          header: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            fname,
+            lname,
+            phone,
+            email,
+            dob,
+            address,
+            pincode,
+            category,
+            data,
+          }),
+        };
+        const res = await fetch(
+          "https://traffic-police-b02cc-default-rtdb.asia-southeast1.firebasedatabase.app/UserData.json",
+          options
+        );
+
+        if (res) {
+          toast.success("Submission Complete");
+        } else {
+          toast.error("Some Error Occured!");
+        }
+      }
     }
-    console.log("entered");
   };
 
   return (
@@ -123,7 +224,7 @@ function Form() {
                   oneTap
                   value={formData.dob}
                   onChange={handleDobInputChange}
-                  placeholder="Select Date"
+                  placeholder="Select Date of Birth"
                   style={{ width: 200 }}
                 />
               </div>
