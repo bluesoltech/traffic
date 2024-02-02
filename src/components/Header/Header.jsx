@@ -13,7 +13,7 @@ function Header() {
         </Link>
       </div>
       <div className="w-full">
-        <h1 className="p-4 text-white text-5xl font-bold text-center  bg-gradient-to-tr from-[#F49724] via-[#FFFFFF] to-[#039C49] text-transparent bg-clip-text drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+        <h1 className="p-4 text-white text-xl md:text-5xl font-bold text-center  bg-gradient-to-tr from-[#F49724] via-[#FFFFFF] to-[#039C49] text-transparent bg-clip-text drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
           Registration Form
         </h1>
       </div>

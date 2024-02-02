@@ -11,22 +11,25 @@ function Footer() {
         <div className="">
           <Link to="/terms">Terms & Condition</Link>
         </div>
-        <div className="">
+        <Link to="/" className="">
           <img src={logo} alt="no_img" />
-        </div>
+        </Link>
         <div className="flex sm:justify-evenly">
-          <div className="m-2">
+          <Link
+            to="https://www.facebook.com/AhmedabadTrafficPolice?mibextid=JRoKGi"
+            className="m-2"
+          >
             <MdFacebook size={30} />
-          </div>
-          <div className="m-2">
+          </Link>
+          <Link
+            to="https://www.instagram.com/ahmedabad_traffic_police?igsh=MXY2bnRuMHpnamhkbw=="
+            className="m-2"
+          >
             <FaInstagram size={30} />
-          </div>
-          <div className="m-2">
+          </Link>
+          <Link to="https://x.com/policeahmedabad?s=21" className="m-2">
             <FaTwitter size={30} />
-          </div>
-          <div className="m-2">
-            <FaLinkedin size={30} />
-          </div>
+          </Link>
         </div>
       </div>
       <hr className="mt-4"></hr>

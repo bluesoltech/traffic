@@ -180,7 +180,7 @@ function Form() {
 
   return (
     <div className="bg-gray-200 h-full flex justify-center items-center">
-      <div className=" md:w-[65%] bg-white p-5 flex flex-col">
+      <div className=" lg:w-[65%] bg-white p-5 flex flex-col">
         <div className="border-b-[1px] border-gray-400"></div>
         <div className="">
           <form className="flex flex-col gap-5 mb-6" onSubmit={send}>
@@ -192,7 +192,7 @@ function Form() {
                 value={formData.fname}
                 onChange={handleInputChange}
                 placeholder="Enter First Name?"
-                className=" w-full focus:outline-none border-b-[1px] border-gray-400"
+                className=" w-full focus:outline-none border-b-[1px] border-gray-400 p-2"
               ></input>
               <input
                 required
@@ -200,7 +200,7 @@ function Form() {
                 value={formData.lname}
                 onChange={handleInputChange}
                 placeholder="Enter Last Name?"
-                className=" w-full focus:outline-none border-b-[1px] border-gray-400"
+                className=" w-full focus:outline-none border-b-[1px] border-gray-400 p-2"
               ></input>
             </div>
             <div className="md:flex justify-evenly gap-3">
@@ -210,7 +210,7 @@ function Form() {
                 value={formData.phone}
                 onChange={handleInputChange}
                 placeholder="Enter Phone Number?"
-                className=" w-full focus:outline-none border-b-[1px] border-gray-400"
+                className=" w-full focus:outline-none border-b-[1px] border-gray-400 p-2"
               ></input>
               <input
                 type="email"
@@ -219,9 +219,9 @@ function Form() {
                 value={formData.email}
                 onChange={handleInputChange}
                 placeholder="Enter E-mail Address?"
-                className=" w-full focus:outline-none border-b-[1px] border-gray-400"
+                className=" w-full focus:outline-none border-b-[1px] border-gray-400 p-2"
               ></input>
-              <div className="w-full flex justify-center">
+              <div className="w-full flex justify-center p-2 mt-2 md:mt-0">
                 <DatePicker
                   required
                   oneTap
@@ -232,14 +232,14 @@ function Form() {
                 />
               </div>
             </div>
-            <div className="flex justify-evenly gap-3">
+            <div className="flex flex-col md:flex-row justify-evenly gap-3">
               <input
                 required
                 name="address"
                 value={formData.address}
                 onChange={handleInputChange}
                 placeholder="Enter your Address?"
-                className=" w-full focus:outline-none border-b-[1px] border-gray-400"
+                className=" w-full focus:outline-none border-b-[1px] border-gray-400 p-2"
               ></input>
               <input
                 required
@@ -250,7 +250,7 @@ function Form() {
                 min="0"
                 max="999999"
                 placeholder="Enter your Pincode?"
-                className=" w-full focus:outline-none border-b-[1px] border-gray-400"
+                className=" w-full focus:outline-none border-b-[1px] border-gray-400 p-2"
               ></input>
             </div>
             <div className="md:flex justify-center gap-3 ">
@@ -260,7 +260,7 @@ function Form() {
                   value={formData.category}
                   onChange={handleInputChange}
                   name="category"
-                  className="outline-none focus:outline-none w-[200px] text-center"
+                  className="outline-none focus:outline-none w-[200px] text-center p-2"
                 >
                   <option className="border-none  text-center" value="slogan">
                     Best Slogan
