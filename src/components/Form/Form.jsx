@@ -260,7 +260,7 @@ function Form() {
                   value={formData.category}
                   onChange={handleInputChange}
                   name="category"
-                  className="outline-none focus:outline-none w-[200px] text-center p-2"
+                  className="outline-none border-none focus:outline-none w-[200px] text-center p-2"
                 >
                   <option className="border-none  text-center" value="slogan">
                     Best Slogan
