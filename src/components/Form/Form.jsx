@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { DatePicker } from "rsuite";
-
+import { useNavigate } from "react-router-dom";
 import FileUpload from "../File/FileUpload";
 import { toast } from "react-toastify";
 
 function Form() {
+  const navigate = useNavigate();
+
   const [painting, setPainting] = useState("");
   const [video, setVideo] = useState("");
   const [poster, setPoster] = useState("");
@@ -168,6 +170,7 @@ function Form() {
 
         if (res) {
           toast.success("Submission Complete");
+          navigate("/success");
         } else {
           toast.error("Some Error Occured!");
         }

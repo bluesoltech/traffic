@@ -125,7 +125,8 @@ function FileUploadVideo({ setVideo }) {
             <FaCloudUploadAlt className="text-4xl text-green-700 hover:text-green-800" />
           </button>
         )}
-        {status > 0 && "Uploading: " + status + "%"}
+        {status > 0 && status < 99 && "Uploading: " + status + "%"}
+        {status == 100 && "Uploaded"}
         {inputRef?.current?.disabled && (
           <button type="button" ref={cancelRef} onClick={handleVideoCancel}>
             <MdCancel className="text-4xl text-red-700 hover:text-red-800" />
