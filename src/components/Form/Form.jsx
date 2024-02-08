@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { DatePicker } from "rsuite";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import FileUpload from "../File/FileUpload";
 import { toast } from "react-toastify";
-import Slider from "react-infinite-logo-slider";
+// import Slider from "react-infinite-logo-slider";
 
 function Form() {
   const navigate = useNavigate();
+  const [agree, setAgree] = useState(false);
 
   const [painting, setPainting] = useState("");
   const [video, setVideo] = useState("");
@@ -179,6 +180,11 @@ function Form() {
     }
   };
 
+  function handleChange(e) {
+    // console.log(e.target.checked);
+    setAgree(e.target.checked);
+  }
+
   return (
     <div className=" h-full flex flex-col justify-center items-center pt-5">
       <div className=" lg:w-[65%] bg-white p-5 flex flex-col">
@@ -288,6 +294,12 @@ function Form() {
               setPoster={setPoster}
               setSlogan={setSlogan}
             />
+            <div className="w-full flex items-center gap-2">
+              <input value="test" type="checkbox" onChange={handleChange} />
+              <p>
+                I agree to <Link to="/terms">terms and conditions</Link>
+              </p>
+            </div>
             <div className="w-full flex justify-end">
               <button
                 type="button"
@@ -296,12 +308,25 @@ function Form() {
               >
                 Clear
               </button>
-              <button
-                type="submit"
-                className="bg-blue-800 hover:bg-blue-700 text-white px-3 py-1 rounded-xl  focus:outline-none"
-              >
-                Submit
-              </button>
+              {agree && (
+                <button
+                  type="submit"
+                  className="bg-blue-800 hover:bg-blue-700 text-white px-3 py-1 rounded-xl  focus:outline-none"
+                >
+                  Submit
+                </button>
+              )}
+              {!agree && (
+                <button
+                  type="button"
+                  className="bg-blue-800 hover:bg-blue-700 text-white px-3 py-1 rounded-xl  focus:outline-none"
+                  onClick={() => {
+                    toast.error("Agree to Terms and Conditions");
+                  }}
+                >
+                  Submit
+                </button>
+              )}
             </div>
           </form>
         </div>

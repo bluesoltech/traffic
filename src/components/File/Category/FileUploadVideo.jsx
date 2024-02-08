@@ -39,24 +39,27 @@ function FileUploadVideo({ setVideo }) {
         setStatus(Math.round(progress));
         switch (snapshot.state) {
           case "paused":
-            console.log("Upload is paused");
+            // console.log("Upload is paused");
             break;
           case "running":
-            console.log("Upload is running");
+            // cancelRef.current.disabled = true;
+            // console.log("Upload is running");
             break;
           default:
             break;
         }
       },
       (error) => {
-        console.log(error);
+        // console.log(error);
         switch (error.code) {
           case "storage/unauthorized":
-            console.log(error);
+            // console.log(error);
             break;
           case "storage/canceled":
+            setStatus(0);
             break;
           case "storage/unknown":
+            setStatus(0);
             break;
           default:
             break;
@@ -67,6 +70,7 @@ function FileUploadVideo({ setVideo }) {
           // console.log("Download URL", downloadURL);
           setVideo(downloadURL);
         });
+        cancelRef.current.disabled = false;
       }
     );
   };
@@ -75,13 +79,24 @@ function FileUploadVideo({ setVideo }) {
     if (video == undefined) {
       toast.error("Upload Something First!");
       return;
-    } else if (video.size > 50 * 1024 * 1024) {
+    } else if (video.size > 1024 * 1024 * 1024) {
       // console.log("fndsdnfasndkn");
-      toast.error("File size greater than 50MB");
+      toast.error("File size greater than 1GB");
       return;
     } else {
-      uploadFile(video);
-      inputRef.current.disabled = true;
+      var dur = URL.createObjectURL(video);
+      const media = new Audio();
+      media.src = dur;
+      let duration;
+      media.onloadedmetadata = (_) => {
+        duration = media.duration;
+        if (duration > 90) {
+          toast.error("Video is longer than 90 seconds");
+        } else {
+          uploadFile(video);
+          inputRef.current.disabled = true;
+        }
+      };
       // toast.success("Successfully Uploaded!");
     }
   };
@@ -97,7 +112,8 @@ function FileUploadVideo({ setVideo }) {
           // File deleted successfully
         })
         .catch((error) => {
-          toast.success("Uh-oh, an error occurred!");
+          toast.error("Uh-oh, an error occurred!");
+
           // Uh-oh, an error occurred!
         });
       setVideo("");
@@ -127,7 +143,12 @@ function FileUploadVideo({ setVideo }) {
         )}
         {status > 0 && status < 99 && "Uploading: " + status + "%"}
         {status == 100 && "Uploaded"}
-        {inputRef?.current?.disabled && (
+        {inputRef?.current?.disabled && status > 0 && status < 99 && (
+          <button type="button" disabled>
+            <MdCancel className="text-4xl text-red-700 hover:text-red-800" />
+          </button>
+        )}
+        {inputRef?.current?.disabled && status == 100 && (
           <button type="button" ref={cancelRef} onClick={handleVideoCancel}>
             <MdCancel className="text-4xl text-red-700 hover:text-red-800" />
           </button>
@@ -138,13 +159,13 @@ function FileUploadVideo({ setVideo }) {
           <FaInfoCircle className="mr-2" />
           <p className="h-auto">
             Duration of the video should not be more than{" "}
-            <strong>1 minute</strong>.
+            <strong>90 Seconds</strong>.
           </p>
         </div>
         <div className="flex items-center">
           <FaInfoCircle className="mr-2" />
           <p>
-            File size should not exceed more than <strong>50MB</strong>.
+            File size should not exceed more than <strong>1GB</strong>.
           </p>
         </div>
         <div className="flex items-center">

@@ -7,10 +7,10 @@ import { Link } from "react-router-dom";
 function Footer() {
   return (
     <div className="w-full bg-gray-900 text-white h-auto p-6">
-      <div className=" flex justify-evenly text-white items-center">
-        <div className="">
+      <div className=" flex justify-around text-white items-center">
+        {/* <div className="">
           <Link to="/terms">Terms & Condition</Link>
-        </div>
+        </div> */}
         <Link to="/" className="">
           <img src={logo} alt="no_img" />
         </Link>

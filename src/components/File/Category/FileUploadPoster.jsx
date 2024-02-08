@@ -75,7 +75,7 @@ function FileUploadPoster({ setPoster }) {
     if (poster == undefined) {
       toast.error("Upload Something First!");
       return;
-    } else if (poster.size > 10 * 1024 * 1024) {
+    } else if (poster.size > 25 * 1024 * 1024) {
       // console.log("fndsdnfasndkn");
       toast.error("File size greater than 10MB");
       return;
@@ -127,7 +127,12 @@ function FileUploadPoster({ setPoster }) {
         )}
         {status > 0 && status < 99 && "Uploading: " + status + "%"}
         {status == 100 && "Uploaded"}
-        {inputRef?.current?.disabled && (
+        {inputRef?.current?.disabled && status > 0 && status < 99 && (
+          <button type="button" ref={cancelRef} disabled>
+            <MdCancel className="text-4xl text-red-700 hover:text-red-800" />
+          </button>
+        )}
+        {inputRef?.current?.disabled && status == 100 && (
           <button type="button" ref={cancelRef} onClick={handlePosterCancel}>
             <MdCancel className="text-4xl text-red-700 hover:text-red-800" />
           </button>
@@ -137,7 +142,7 @@ function FileUploadPoster({ setPoster }) {
         <div className="flex items-center">
           <FaInfoCircle className="mr-2" />
           <p>
-            File size should not exceed more than <strong>10MB</strong>.
+            File size should not exceed more than <strong>25MB</strong>.
           </p>
         </div>
         <div className="flex items-center">
