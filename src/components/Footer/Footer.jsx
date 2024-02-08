@@ -34,8 +34,11 @@ function Footer() {
       </div>
       <hr className="mt-4"></hr>
       <div className=" flex-col justify-center text-center mt-6">
-        <p>This Website is Created & Managed by BlueSoltech</p>
-        <p>©COPYRIGHT BlueSoltech2023-24</p>
+        <p>
+          This Website is Created & Managed by{" "}
+          <Link to="http://bluesoltech.in">BlueSoltech</Link>
+        </p>
+        <p className="opacity-[50%]">© Copyright reserved by BlueSoltech</p>
       </div>
     </div>
   );

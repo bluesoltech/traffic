@@ -3,6 +3,7 @@ import { DatePicker } from "rsuite";
 import { useNavigate } from "react-router-dom";
 import FileUpload from "../File/FileUpload";
 import { toast } from "react-toastify";
+import Slider from "react-infinite-logo-slider";
 
 function Form() {
   const navigate = useNavigate();
@@ -179,7 +180,7 @@ function Form() {
   };
 
   return (
-    <div className="bg-gray-200 h-full flex justify-center items-center">
+    <div className="bg-gray-200 h-full flex flex-col justify-center items-center">
       <div className=" lg:w-[65%] bg-white p-5 flex flex-col">
         <p className="w-full text-center text-black text-lg md:text-2xl p-4 font-bold">
           Road Safety Awareness Month
@@ -306,8 +307,47 @@ function Form() {
         </div>
         <div className="border-b-[1px] border-gray-400"></div>
       </div>
+      <div className="h-[50vh] w-full flex flex-col items-center p-5">
+        <div className="w-full flex flex-col items-center">
+          <div className="flex gap-[50px] pt-6">
+            <div className="flex flex-col items-center">
+              <p className="text-2xl text-gray-500 font-bold text-center">
+                Title Sponsor
+              </p>
+              <img
+                src="/SKLogo.png"
+                className="w-[100px] md:w-[200px] p-2"
+                alt=""
+              />
+            </div>
+            {/* <div className="">
+              <p className="text-md text-gray-500 font-bold text-center">
+                Managed By
+              </p>
+              <img src="/BSlogo.png" className="w-[85px] p-2" alt="" />
+            </div> */}
+          </div>
+          <br />
+          <br />
+        </div>
+      </div>
     </div>
   );
 }
-
+{
+  /* <Slider
+            width="250px"
+            duration={40}
+            pauseOnHover={true}
+            blurBorders={false}
+            blurBoderColor={"#fff"}
+          >
+            <Slider.Slide>
+              <h1>Kunal</h1>
+            </Slider.Slide>
+            <Slider.Slide>
+              <h1>Kunal</h1>
+            </Slider.Slide>
+          </Slider> */
+}
 export default Form;
