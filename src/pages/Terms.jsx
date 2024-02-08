@@ -10,38 +10,40 @@ const Terms = () => {
       </div>
       <div className="md:w-[60%] mx-auto justify-center justify-items-center p-6 rounded-sm shadow-2xl">
         <ul className="">
-          <li className="m-2">★ This competition is based on traffic only.</li>
           <li className="m-2">
-            ★ So slogans and posters should be made keeping that in mind. Off
-            topic names will not be considered.
-          </li>
-          <li className="m-2">★ People of any age can participate.</li>
-          <li className="m-2">
-            ★ You can create in any of the three languages ​​Hindi, English,
-            Gujarati.
+            1. The competition emphasizes traffic awareness.
           </li>
           <li className="m-2">
-            ★ Slogan should be self-created, name will be disqualified if found
-            to be copied.
+            2. Plagiarism in slogan creation leads to disqualification.
+          </li>
+          <li className="m-2">3. Participants of all ages are welcome.</li>
+          <li className="m-2">
+            4. Accepted languages: Hindi, English, Gujarati.
           </li>
           <li className="m-2">
-            ★ Slogan should be written in maximum 25 words.
+            5. Slogans: max 25 words, submit two variants.
           </li>
           <li className="m-2">
-            ★ Slogans are shown in two variants in a maximum of 25 wards.
+            6. Design original posters, physical or digital.
           </li>
           <li className="m-2">
-            ★ You can create any physical and digital poster.
+            7. Deadline approaching: 15th Feb'24; late submissions not accepted.
           </li>
-          <li className="m-2">★ Poster design should be your brainchild.</li>
-          <li className="m-2">★ This is the last date to do it.</li>
           <li className="m-2">
-            ★ The winners of both competitions will be honoured.
+            8. Any discrepancies in provided details result in termination from
+            the competition.
           </li>
         </ul>
       </div>
     </div>
   );
 };
-
+// - The competition emphasizes traffic awareness.
+// - Plagiarism in slogan creation leads to disqualification.
+// - Participants of all ages are welcome.
+// - Accepted languages: Hindi, English, Gujarati.
+// - Slogans: max 25 words, submit two variants.
+// - Design original posters, physical or digital.
+// - Deadline approaching; late submissions not accepted.
+// - Any discrepancies in provided details result in termination from the competition.
 export default Terms;
