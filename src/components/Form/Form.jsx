@@ -180,7 +180,7 @@ function Form() {
   };
 
   return (
-    <div className="bg-gray-200 h-full flex flex-col justify-center items-center">
+    <div className=" h-full flex flex-col justify-center items-center pt-5">
       <div className=" lg:w-[65%] bg-white p-5 flex flex-col">
         <p className="w-full text-center text-black text-lg md:text-2xl p-4 font-bold">
           Road Safety Awareness Month
@@ -308,7 +308,7 @@ function Form() {
         <div className="border-b-[1px] border-gray-400"></div>
       </div>
       <div className="h-[50vh] w-full flex flex-col items-center p-5">
-        <div className="w-full flex flex-col items-center">
+        <div className="w-full flex flex-col items-center p-6">
           <div className="flex gap-[50px] pt-6">
             <div className="flex flex-col items-center">
               <p className="text-2xl text-gray-500 font-bold text-center">
