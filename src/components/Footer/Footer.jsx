@@ -38,7 +38,9 @@ function Footer() {
           This Website is Created & Managed by{" "}
           <Link to="http://bluesoltech.in">BlueSoltech</Link>
         </p>
-        <p className="opacity-[50%]">© Copyright reserved by BlueSoltech</p>
+        <p className="opacity-[50%] flex items-center justify-center">
+          Copyright © All Rights Reserved
+        </p>
       </div>
     </div>
   );

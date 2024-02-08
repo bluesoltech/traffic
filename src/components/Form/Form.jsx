@@ -332,7 +332,7 @@ function Form() {
         </div>
         <div className="border-b-[1px] border-gray-400"></div>
       </div>
-      <div className="h-[50vh] w-full flex flex-col items-center p-5">
+      <div className="w-full flex flex-col items-center p-5">
         <div className="w-full flex flex-col items-center p-6">
           <div className="flex gap-[50px] pt-6">
             <div className="flex flex-col items-center">
