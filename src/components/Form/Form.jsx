@@ -3,6 +3,9 @@ import { DatePicker } from "rsuite";
 import { useNavigate, Link } from "react-router-dom";
 import FileUpload from "../File/FileUpload";
 import { toast } from "react-toastify";
+import { MdFacebook } from "react-icons/md";
+import { TbWorldWww } from "react-icons/tb";
+import { FaInstagram, FaTwitter } from "react-icons/fa";
 // import Slider from "react-infinite-logo-slider";
 
 function Form() {
@@ -339,11 +342,31 @@ function Form() {
               <p className="text-2xl text-gray-500 font-bold text-center">
                 Title Sponsor
               </p>
-              <img
-                src="/SKLogo.png"
-                className="w-[100px] md:w-[200px] p-2"
-                alt=""
-              />
+              <div className="flex flex-col gap-4">
+                <img
+                  src="/SKLogo.png"
+                  className="w-[100px] md:w-[200px] p-2"
+                  alt=""
+                />
+                <div className="flex gap-4 justify-around bg-white h-auto py-1 px-4 rounded-xl">
+                  <Link to="https://www.skfin.in/">
+                    {" "}
+                    <TbWorldWww className="text-2xl hover:text-black" />
+                  </Link>
+                  <Link to="https://www.facebook.com/SKFinanceLtd?sfnsn=wiwspmo&mibextid=RUbZ1f">
+                    {" "}
+                    <MdFacebook className="text-2xl hover:text-black" />
+                  </Link>
+                  <Link to="https://www.instagram.com/skfinanceltd?igsh=MTA4djJxd3d3OHh4NQ==">
+                    {" "}
+                    <FaInstagram className="text-2xl hover:text-black" />
+                  </Link>
+                  <Link to="https://x.com/SKFinanceLtd?t=HzIR1e7PeqC8GQgl-05ffw&s=09">
+                    {" "}
+                    <FaTwitter className="text-2xl hover:text-black" />
+                  </Link>
+                </div>
+              </div>
             </div>
             {/* <div className="">
               <p className="text-md text-gray-500 font-bold text-center">
