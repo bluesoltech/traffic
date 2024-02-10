@@ -231,27 +231,48 @@ export default function App() {
             )}
           </div>
 
-          <ReactCrop
-            crop={crop}
-            onChange={(_, percentCrop) => setCrop(percentCrop)}
-            onComplete={(c) => setCompletedCrop(c)}
-            aspect={aspect}
-            minHeight={50}
-            circularCrop
-          >
-            <img
-              ref={imgRef}
-              alt="Crop me"
-              src={imgSrc}
-              style={{ transform: `scale(${scale}) rotate(${rotate}deg)` }}
-              className="max-w-[300px] h-auto md:w-[600px]"
-              onLoad={onImageLoad}
-            />
-          </ReactCrop>
+          {done ? (
+            <ReactCrop
+              disabled
+              crop={crop}
+              onChange={(_, percentCrop) => setCrop(percentCrop)}
+              onComplete={(c) => setCompletedCrop(c)}
+              aspect={aspect}
+              minHeight={50}
+              circularCrop
+            >
+              <img
+                ref={imgRef}
+                alt="Crop me"
+                src={imgSrc}
+                style={{ transform: `scale(${scale}) rotate(${rotate}deg)` }}
+                className="max-w-[300px] h-auto md:w-[600px]"
+                onLoad={onImageLoad}
+              />
+            </ReactCrop>
+          ) : (
+            <ReactCrop
+              crop={crop}
+              onChange={(_, percentCrop) => setCrop(percentCrop)}
+              onComplete={(c) => setCompletedCrop(c)}
+              aspect={aspect}
+              minHeight={50}
+              circularCrop
+            >
+              <img
+                ref={imgRef}
+                alt="Crop me"
+                src={imgSrc}
+                style={{ transform: `scale(${scale}) rotate(${rotate}deg)` }}
+                className="max-w-[300px] h-auto md:w-[600px]"
+                onLoad={onImageLoad}
+              />
+            </ReactCrop>
+          )}
         </div>
       )}
 
-      <div className={done ? " m-3" : "m-3"}>
+      <div className={done ? "hidden m-3" : "m-3"}>
         {!imgSrc && (
           <div className="flex flex-col items-center justify-center gap-4 inputLelo my-10">
             <p className="text-xl">Upload your Image</p>
